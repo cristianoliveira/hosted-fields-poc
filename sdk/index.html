@@ -7,20 +7,33 @@
   </head>
   <script src="./hfields.js"></script>
   <script charset="utf-8">
-    function  onSubmit(eve) {
+    function onSubmit(eve) {
       hfields.submit()
     }
   </script>
   <body>
     <div>
       <div id="credit-card-number" />
-    </div>
-    <div>
-      <button id="submit-button" onclick="onSubmit(event)">Submit</button>
+      <div id="credit-card-expiration" />
+      <div id="credit-card-cvv" />
+      <div>
+        <button id="submit-button" onclick="onSubmit(event)">Submit</button>
+      </div>
+      <iframe src="https://example.org/" frameborder="0"></iframe>
     </div>
     <script charset="utf-8">
-      const ccNumber = document.querySelector('#credit-card-number');
-      hfields.create({ element: ccNumber, input: 'credit-card-number' })
+      hfields.create({
+        element: document.querySelector('#credit-card-number'),
+        input: 'credit-card-number'
+      })
+      hfields.create({
+        element: document.querySelector('#credit-card-expiration'),
+        input: 'credit-card-expiration'
+      })
+      hfields.create({
+        element: document.querySelector('#credit-card-cvv'),
+        input: 'credit-card-cvv'
+      })
     </script>
   </body>
 </html>
