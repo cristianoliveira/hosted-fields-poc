@@ -4,12 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <title>Hosted</title>
-    <script src="./hfields.js"></script>
-    <script charset="utf-8">
-      hfields.init();
-    </script>
   </head>
   <body>
     <input type="text" value="" name="input" id="input"/>
+    <script src="<%= htmlWebpackPlugin.files.js[0] %>"></script>
+    <script defer charset="utf-8">
+      hfields.init();
+    </script>
   </body>
 </html>

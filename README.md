@@ -6,12 +6,9 @@ This project is a proof of concept for implementing a simple hosted fields sdk
 
 ```bash
 yarn
-
-yarn build:sdk
-yarn build:hosted
-
+yarn build # or yarn watch
 yarn serve:sdk
-yarn serve:hosted
+yarn serve:examples
 ```
 
 ## Running tests

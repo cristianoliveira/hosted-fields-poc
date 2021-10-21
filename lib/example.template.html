@@ -5,9 +5,12 @@
     <meta name="viewport" content="width=device-width" />
     <title>Example</title>
   </head>
-  <script src="./hfields.js"></script>
+  <script src="<%= htmlWebpackPlugin.options.sdkURL %>/sdk.js"></script>
   <script charset="utf-8">
     function onSubmit(eve) {
+      hfields.onResult(data => {
+        console.log('ON_RESULT: ', data)
+      })
       hfields.submit()
     }
   </script>
