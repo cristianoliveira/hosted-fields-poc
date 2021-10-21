@@ -11,6 +11,14 @@ yarn serve:sdk
 yarn serve:examples
 ```
 
+Then access the example checkout page using the hosted fields:
+
+http://localhost:8000/checkout/page.html
+
+The SDK and hosted fields are served on
+
+http://localhost:9000/
+
 ## Running tests
 
 ```
