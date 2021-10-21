@@ -10,6 +10,7 @@
     function onSubmit(eve) {
       hfields.onResult(data => {
         console.log('ON_RESULT: ', data)
+        document.querySelector('textarea').value = JSON.stringify(data);
       })
       hfields.submit()
     }
@@ -38,5 +39,6 @@
         input: 'credit-card-cvv'
       })
     </script>
+    <textarea name="result" id="result"></textarea>
   </body>
 </html>
