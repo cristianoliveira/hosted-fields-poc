@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
@@ -25,6 +26,7 @@ module.exports = {
       inject: false,
       sdkURL: process.env.SDK_URL || 'http://localhost:9000',
     }),
+    new webpack.EnvironmentPlugin(['HOSTED_FIELDS_URL']),
   ],
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
