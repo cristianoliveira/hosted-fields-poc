@@ -1,0 +1,29 @@
+{
+  "name": "ifrone",
+  "version": "0.0.1",
+  "description": "A tiny wrapper around cross-window communication",
+  "main": "index.js",
+  "author": "Cristian Oliveira",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "webpack --watch",
+    "watch:sdk": "webpack --watch -c ./webpack.sdk.config.js",
+    "watch:hosted": "webpack --watch -c ./webpack.hosted.config.js",
+    "serve:sdk": "webpack serve -c ./webpack.sdk.config.js",
+    "serve:hosted": "webpack serve -c ./webpack.hosted.config.js",
+    "build": "webpack build",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.4",
+    "@babel/preset-env": "^7.11.0",
+    "babel-jest": "^26.3.0",
+    "jest": "^26.4.2",
+    "prettier": "^2.1.1",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {}
+}

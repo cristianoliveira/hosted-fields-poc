@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Example</title>
+  </head>
+  <body>
+    <div id="credit-card-number" />
+    <script src="./hfields.js"></script>
+    <script charset="utf-8">
+      const ccNumber = document.querySelector('#credit-card-number');
+      debugger
+      hfields.create({ element: ccNumber, input: 'credit-card-number' })
+    </script>
+  </body>
+</html>
