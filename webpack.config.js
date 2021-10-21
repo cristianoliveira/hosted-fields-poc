@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
+  mode: 'development',
   entry: {
     hfields: './lib/hosted-field/index.js',
     sdk: './lib/sdk/index.js',
@@ -24,9 +25,11 @@ module.exports = {
       template: './lib/example.template.html',
       filename: 'checkout/page.html',
       inject: false,
-      sdkURL: process.env.SDK_URL || 'http://localhost:9000',
+      sdkURL: process.env.HOSTED_FIELDS_URL || 'http://localhost:9000',
     }),
-    new webpack.EnvironmentPlugin(['HOSTED_FIELDS_URL']),
+    new webpack.EnvironmentPlugin({
+      HOSTED_FIELDS_URL: 'http://localhost:9000',
+    }),
   ],
   devServer: {
     contentBase: path.join(__dirname, 'dist'),

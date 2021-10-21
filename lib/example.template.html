@@ -6,15 +6,6 @@
     <title>Example</title>
   </head>
   <script src="<%= htmlWebpackPlugin.options.sdkURL %>/sdk.js"></script>
-  <script charset="utf-8">
-    function onSubmit(eve) {
-      hfields.onResult(data => {
-        console.log('ON_RESULT: ', data)
-        document.querySelector('textarea').value = JSON.stringify(data);
-      })
-      hfields.submit()
-    }
-  </script>
   <body>
     <div>
       <div id="credit-card-number" />
@@ -23,20 +14,41 @@
       <div>
         <button id="submit-button" onclick="onSubmit(event)">Submit</button>
       </div>
-      <iframe src="https://example.org/" frameborder="0"></iframe>
+      <div>
+        This is just a useless iframe to check if we have access to it.
+        <iframe src="https://example.org/" frameborder="0"></iframe>
+      </div>
     </div>
     <script charset="utf-8">
-      hfields.create({
-        element: document.querySelector('#credit-card-number'),
-        input: 'credit-card-number'
-      })
-      hfields.create({
-        element: document.querySelector('#credit-card-expiration'),
-        input: 'credit-card-expiration'
-      })
-      hfields.create({
-        element: document.querySelector('#credit-card-cvv'),
-        input: 'credit-card-cvv'
+      const fields = [
+        hfields.field({
+          element: document.querySelector('#credit-card-number'),
+          input: 'credit-card-number'
+        }),
+        hfields.field({
+          element: document.querySelector('#credit-card-expiration'),
+          input: 'credit-card-expiration'
+        }),
+        hfields.field({
+          element: document.querySelector('#credit-card-cvv'),
+          input: 'credit-card-cvv'
+        }),
+      ];
+
+      var hfInstance = hfields.mount(fields)
+      // Just an attempt to have access to one iframe
+      // hfInstance.mainIframe.contentWindow.document.addEventListener(
+      //   'message',
+      //   (ev) => console.log('THIS IS AN ATTEMPT TO SNIFF MESSAGES', ev)
+      // );
+
+      function onSubmit(eve) {
+        hfInstance.submit()
+      }
+
+      hfields.onResult(data => {
+        console.log('ON_RESULT: ', data)
+        document.querySelector('textarea').value = JSON.stringify(data);
       })
     </script>
     <textarea name="result" id="result"></textarea>
